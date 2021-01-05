@@ -1,0 +1,26 @@
+galaxy_info:
+  author: K. Scott Tripp <kscott.tripp@gmail.com>
+  description: Configures a host to run services defined in a docker-compose file
+
+  # If the issue tracker for your role is not on github, uncomment the
+  # next line and provide a value
+  # issue_tracker_url: http://example.com/issue/tracker
+
+  license: "license (BSD-3-Clause)"
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+
+  galaxy_tags:
+    - web
+    - system
+    - containers
+    - docker
+    - compose
+    - server
+
+dependencies: []
