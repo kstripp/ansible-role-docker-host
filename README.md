@@ -2,8 +2,12 @@ Role Name
 =========
 
 This role that configures services defined in a docker-compose file.
-This is a fairly specific role.  For a more generic docker host role, you 
-may be more interested in geerlingguy/docker, and possibly IronicBadger/ansible_role_docker_compose_generator 
+This is a fairly specific role, tailored to how I use a docker host
+in my homelab.
+
+For a more generic docker host role, you may be more interested in 
+geerlingguy/docker, 
+and possibly IronicBadger/ansible_role_docker_compose_generator 
 
 Requirements
 ------------

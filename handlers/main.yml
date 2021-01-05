@@ -1,0 +1,5 @@
+---
+# handlers file for ansible-role-docker-host
+- name: Update system package cache
+  apt: update_cache=yes
+  become: yes
