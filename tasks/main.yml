@@ -41,3 +41,28 @@
       name: docker
       state: started
       enabled: yes
+
+- name: Create config directory
+  file:
+      path: /opt/services
+      state: directory
+
+- name: Copy config files
+  template:
+      src: opt/services/docker-compose.yml.j2
+      dest: /opt/services/docker-compose.yml
+
+- name: Create data directory
+  file:
+      path: '{{ service_data_dir }}'
+      state: directory
+
+- name: Stop all docker services to prevent duplication
+  command: docker-compose down
+  args:
+      chdir: /opt/services
+
+- name: Start all docker services
+  command: docker-compose up -d
+  args:
+      chdir: /opt/services
