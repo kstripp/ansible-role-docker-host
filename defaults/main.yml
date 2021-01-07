@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-role-docker-host
+
+service_data_dir: /var/appdata
+
+# vim: syntax=yaml
