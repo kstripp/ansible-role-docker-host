@@ -1,5 +1,7 @@
 ---
-- hosts: localhost
+- hosts: all
   become: yes
   roles:
     - ../../ansible-role-docker-host
+  vars:
+    - docker_compose_template: test_compose_file.yml
