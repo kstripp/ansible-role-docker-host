@@ -4,4 +4,6 @@
   roles:
     - ../../ansible-role-docker-host
   vars:
-    - docker_compose_template: test_compose_file.yml
+    - docker_compose_template: templates/test_compose_file.yml
+    - docker_service_config_file_source: files/etc/
+    - docker_service_config_file_dest: /etc

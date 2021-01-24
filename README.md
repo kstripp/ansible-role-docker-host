@@ -17,14 +17,26 @@ None
 Role Variables
 --------------
 
-Required variables:
+### Required variables:
 
-    docker_compose_template: path to the compose file for this server
+    docker_compose_template: ''
 
-Optional variables:
+The local path to the compose file for this server.  This file will be installed to /opt/services
 
-    service_data_dir: location for persistance data
+### Optional variables:
 
+    service_data_dir: ''
+
+location for persistance data
+    
+    docker_service_config_file_source: ''
+    docker_service_config_file_dest: ''
+
+Additional configration files are specified with `docker_service_config_files` and `docker_service_config_dir`.
+`docker_service_config_files` is the local path to the top level of these files.
+`docker_service_config_dir` is top level destination path for installing on the server.
+`_source` and `_dest` follow the rsync path naming conventions
+Note: `docker_service_config_dir` is required when `docker_service_config_files` is defined.
 
 Dependencies
 ------------
@@ -41,6 +53,8 @@ Including an example of how to use your role (for instance, with variables passe
         - ansible-role-docker-host
       vars:
         - docker_compose_template: compose_file.yml
+        - docker_service_config_files: files/etc/
+        - docker_service_config_dir: /etc
 
 License
 -------

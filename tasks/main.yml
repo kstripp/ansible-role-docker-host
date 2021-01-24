@@ -47,7 +47,7 @@
       path: /opt/services
       state: directory
 
-- name: Copy config files
+- name: Copy docker-compose file
   template:
       src: '{{ docker_compose_template }}'
       dest: /opt/services/docker-compose.yml
@@ -56,6 +56,11 @@
   file:
       path: '{{ service_data_dir }}'
       state: directory
+
+- name: Copy other config files
+  copy:
+      src: '{{ docker_service_config_file_source }}'
+      dest: '{{ docker_service_config_file_dest }}'
 
 - name: Stop all docker services to prevent duplication
   command: docker-compose down
