@@ -53,8 +53,8 @@ Including an example of how to use your role (for instance, with variables passe
         - ansible-role-docker-host
       vars:
         - docker_compose_template: compose_file.yml
-        - docker_service_config_files: files/etc/
-        - docker_service_config_dir: /etc
+        - docker_service_config_file_source: files/etc/
+        - docker_service_config_file_dest: /etc
 
 License
 -------
