@@ -61,6 +61,7 @@
   copy:
       src: '{{ docker_service_config_file_source }}'
       dest: '{{ docker_service_config_file_dest }}'
+  when: docker_service_config_file_source is defined
 
 - name: Stop all docker services to prevent duplication
   command: docker-compose down
