@@ -5,11 +5,18 @@
   apt: update_cache=yes
   become: true
 
-- name: Install podman packages
+- name: Install Docker packages
   apt:
       name:
-          - podman
-          - podman-compose
+          - docker.io
+          - docker-cli
+          - docker-compose
+
+- name: Enable and start Docker service
+  systemd:
+      name: docker
+      state: started
+      enabled: true
 
 - name: Create config directory
   file:
@@ -33,11 +40,11 @@
   when: docker_service_config_file_source is defined
 
 - name: Stop all docker services to prevent duplication
-  command: podman-compose down
+  command: docker-compose down
   args:
       chdir: /opt/services
 
 - name: Start all docker services
-  command: podman-compose up -d
+  command: docker-compose up -d
   args:
       chdir: /opt/services
