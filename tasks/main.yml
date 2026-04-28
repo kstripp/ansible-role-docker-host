@@ -9,7 +9,6 @@
   apt:
       name:
           - docker.io
-          - docker-cli
           - docker-compose
 
 - name: Enable and start Docker service
