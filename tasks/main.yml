@@ -33,7 +33,7 @@
       state: directory
 
 - name: Copy other config files
-  copy:
+  template:
       src: '{{ docker_service_config_file_source }}'
       dest: '{{ docker_service_config_file_dest }}'
   when: docker_service_config_file_source is defined
